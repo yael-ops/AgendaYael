@@ -12,15 +12,15 @@ namespace AgendaYael.Service
         private DbagendaContext _dbagendaContext;
 
 
-        //public IEnumerable<Contact> GetAllcontacts()
-        //{
-        //    using (_dbagendaContext = new DbagendaContext())
-        //    {
-        //        var allcontact = _dbagendaContext.Contacts.ToList();
-        //        return allcontact;
-        //    }
+        ////public IEnumerable<Contact> GetAllcontacts()
+        ////{
+        ////    using (_dbagendaContext = new DbagendaContext())
+        ////    {
+        ////        var allcontact = _dbagendaContext.Contacts.ToList();
+        ////        return allcontact;
+        ////    }
        
-        //}
+        ////}
 
 
 
