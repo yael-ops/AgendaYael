@@ -17,7 +17,6 @@ public partial class DbagendaContext : DbContext
 
     public virtual DbSet<Contact> Contacts { get; set; }
 
-    public virtual DbSet<ReseauxSociaux> ReseauxSociauxes { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
@@ -47,31 +46,6 @@ public partial class DbagendaContext : DbContext
             entity.Property(e => e.NumeroDeTel).HasColumnName("Numero de tel");
             entity.Property(e => e.Prenom).HasMaxLength(45);
             entity.Property(e => e.ResauxSociaux).HasMaxLength(45);
-        });
-
-        modelBuilder.Entity<ReseauxSociaux>(entity =>
-        {
-            entity.HasKey(e => new { e.ReseauxtId, e.ContactsContactId })
-                .HasName("PRIMARY")
-                .HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0 });
-
-            entity.ToTable("reseaux sociaux");
-
-            entity.HasIndex(e => e.ContactsContactId, "fk_Reseaux Sociaux_Contacts_idx");
-
-            entity.Property(e => e.ReseauxtId).HasColumnName("reseauxtId");
-            entity.Property(e => e.ContactsContactId).HasColumnName("Contacts_contactId");
-            entity.Property(e => e.ReseauxLink)
-                .HasMaxLength(45)
-                .HasColumnName("reseaux Link");
-            entity.Property(e => e.ReseauxNom)
-                .HasMaxLength(45)
-                .HasColumnName("Reseaux nom");
-
-            entity.HasOne(d => d.ContactsContact).WithMany(p => p.ReseauxSociauxes)
-                .HasForeignKey(d => d.ContactsContactId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("fk_Reseaux Sociaux_Contacts");
         });
 
         OnModelCreatingPartial(modelBuilder);

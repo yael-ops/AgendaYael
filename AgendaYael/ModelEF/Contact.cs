@@ -17,9 +17,9 @@ public partial class Contact
 
     public int? NumeroDeTel { get; set; }
 
-    public DateOnly DateDeNaissance { get; set; }
+    public string? DateDeNaissance { get; set; }
 
     public string? ResauxSociaux { get; set; }
 
-    public virtual ICollection<ReseauxSociaux> ReseauxSociauxes { get; set; } = new List<ReseauxSociaux>();
+
 }

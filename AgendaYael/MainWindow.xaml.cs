@@ -1,4 +1,6 @@
-﻿using AgendaYael.Service;
+﻿using AgendaYael.ModelEF;
+using AgendaYael.Service;
+using AgendaYael.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,13 +24,14 @@ namespace AgendaYael
     public partial class MainWindow : Window
 
     {
-        private DAOContacts dAOContacts;
+         DAOContacts dAOContacts;
         public MainWindow()
         {
             
             InitializeComponent();
 
             dAOContacts = new DAOContacts();
+            DG_Contacte.ItemsSource=dAOContacts.GetContactes();
            //var toto =  dAOContacts.GetAllcontacts();
        //ghh;f
             
@@ -36,7 +39,16 @@ namespace AgendaYael
 
         private void Ajouter_Click(object sender, RoutedEventArgs e)
         {
+            changementView.Children.Clear();
+            View_changement view_Changement = new View_changement();
+            changementView.Children.Add(view_Changement);
+        }
 
+        private void Retirer_Click(object sender, RoutedEventArgs e)
+        {
+           Contact contact = DG_Contacte.SelectedItem as Contact;
+            dAOContacts.DeleteContacte(contact.ContactId);
+            DG_Contacte.ItemsSource = dAOContacts.GetContactes();
         }
     }
 }

@@ -22,11 +22,15 @@
                 <TextBlock Text="Agenda" Foreground="Black" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold"/>
             </Grid>
             <Grid Grid.Column="1" x:Name="changementView">
-                <TextBox x:Name="txtBoxContact" Margin="162,192,0,192" Width="200" Height="50" HorizontalAlignment="Left"/>
-                <Button Content="Ajouter" Margin="10" Grid.Row="2" Width="100" Height="50" HorizontalAlignment="Left" Click="Ajouter_Click"/>
-
+                <Grid.RowDefinitions >
+                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Button Grid.Column="0"  x:Name="Retirer" Content="Retirer" Margin="215,15,0,15" Width="127" Height="50" HorizontalAlignment="Left" Click="Retirer_Click"/>
+                <Button Grid.Column="0" Content="Ajouter" Margin="80,15,0,15" Width="100" Height="50" HorizontalAlignment="Left" Click="Ajouter_Click"/>
+                <DataGrid Grid.Row="1" Name="DG_Contacte" Height="200" VerticalAlignment="Top" Margin="0,17,0,0"/>
             </Grid>
 
         </Grid>
-   </Border>
+    </Border>
 </Window>

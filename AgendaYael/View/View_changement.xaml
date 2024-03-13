@@ -6,7 +6,36 @@
              xmlns:local="clr-namespace:AgendaYael.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+    <Grid x:Name="addcontact" Background="AliceBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="Prénom:" VerticalAlignment="Center"/>
+        <TextBox Grid.Column="1" Grid.Row="0" Margin="5,5,247,5" Name="TBprenom" />
+
+        <TextBlock Grid.Row="1" Text="Nom:" VerticalAlignment="Center"/>
+        <TextBox Grid.Column="1" Grid.Row="1" Margin="5,5,247,5" Name="TBnom"/>
+
+
+
+        <TextBlock Grid.Row="3" Text="Email:" VerticalAlignment="Center"/>
+        <TextBox Grid.Column="1" Grid.Row="3" Margin="5,5,247,5" Name="TBemail" />
+
+        <TextBlock Grid.Row="4" Text="Date de naissance:" VerticalAlignment="Center" Margin="0,0,698,0" Grid.ColumnSpan="2"/>
+        <TextBox Grid.Column="1" Grid.Row="4" Margin="73,0,574,-2" Name="TBdate_de_naissance" />
+
+        <Button Grid.Column="1" Content="Ajouter" HorizontalAlignment="Right" Margin="0,26,101,10" Click="Button_Click" Grid.RowSpan="2"/>
+
     </Grid>
 </UserControl>
