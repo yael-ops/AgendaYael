@@ -19,7 +19,7 @@ public partial class Contact
 
     public string? DateDeNaissance { get; set; }
 
+    public string Statut { get; set; } = null!;
+
     public string? ResauxSociaux { get; set; }
-
-
 }

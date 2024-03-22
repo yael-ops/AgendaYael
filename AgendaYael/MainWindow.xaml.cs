@@ -24,31 +24,45 @@ namespace AgendaYael
     public partial class MainWindow : Window
 
     {
+         DAOToDoList dAOToDoList;
          DAOContacts dAOContacts;
         public MainWindow()
         {
             
             InitializeComponent();
+           
 
             dAOContacts = new DAOContacts();
-            DG_Contacte.ItemsSource=dAOContacts.GetContactes();
+            dAOToDoList = new DAOToDoList();
+
+            dAOToDoList.GetToDoLists();
+
            //var toto =  dAOContacts.GetAllcontacts();
-       //ghh;f
-            
+           //ghh;f
+
         }
 
-        private void Ajouter_Click(object sender, RoutedEventArgs e)
+
+        
+
+        private void Contact_Click(object sender, RoutedEventArgs e)
         {
             changementView.Children.Clear();
-            View_changement view_Changement = new View_changement();
-            changementView.Children.Add(view_Changement);
+            ContactPage contactPage = new ContactPage();
+            changementView.Children.Add(contactPage);
         }
 
-        private void Retirer_Click(object sender, RoutedEventArgs e)
+        private void Calendar_Click(object sender, RoutedEventArgs e)
         {
-           Contact contact = DG_Contacte.SelectedItem as Contact;
-            dAOContacts.DeleteContacte(contact.ContactId);
-            DG_Contacte.ItemsSource = dAOContacts.GetContactes();
+
+        }
+
+        private void To_Do_List_Click(object sender, RoutedEventArgs e)
+        {
+            // fais en sorte que quand je clique sur ce bouton , la page de to do list s'affiche
+            changementView.Children.Clear();
+            ToDoListPage toDoListPage = new ToDoListPage();
+            changementView.Children.Add(toDoListPage);
         }
     }
 }

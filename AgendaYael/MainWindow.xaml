@@ -5,9 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AgendaYael"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="600" Width="1200">
+
+
+    <Window.Resources>
+        <Style x:Key="GradientButton" TargetType="Button">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="20">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                    <!-- Gradient Stops for the colors, replace with your desired colors -->
+                                    <GradientStop Color="#FF30CFD0" Offset="0"/>
+                                    <GradientStop Color="#FF330867" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Border CornerRadius="30" Background="#EFF2F7">
+
+
+
+
         <Grid>
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="190"/>
                 <ColumnDefinition Width="*"/>
@@ -18,17 +48,37 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Border Grid.Row="1" Background="Cyan" CornerRadius="0 50 0 30">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="*"/>
+
+
+
+                        </Grid.RowDefinitions>
+
+                        <Image Grid.Row="0" Name="contactimage" Source="Service/iMAGE/If_prenom.png" Height="40" HorizontalAlignment="Left" Margin="10,15,0,15" />
+                        <Button Grid.Row="0" x:Name="BTN_contact" Background="Cyan"  Content="Contact" Width="70" Height="50" HorizontalAlignment="Center" Click="Contact_Click" Style="{StaticResource GradientButton}" />
+
+                        <Image Grid.Row="1" Name="calenderimage" Source="Service/iMAGE/If_calendar.png" Height="40" HorizontalAlignment="Left" Margin="10,15,0,15" />
+                        <Button Grid.Row="1" x:Name="Calendar" Background="Cyan"  Content="Calender" Width="70" Height="50" HorizontalAlignment="Center" Click="Calendar_Click" Style="{StaticResource GradientButton}" />
+
+
+                        <TextBlock Text="To Do List" Grid.Row="2" Foreground="Black" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold"/>
+                        <Image Grid.Row="2" Name="todolist" Source="Service/iMAGE/ok.jpg" Height="40" HorizontalAlignment="Left" Margin="10,15,0,15" />
+                        <Button Grid.Row="2" x:Name="To_Do_List" Background="Cyan"  Content="To do LisT" Width="70" HorizontalAlignment="Center" Click="To_Do_List_Click" Style="{StaticResource GradientButton}" Margin="0,10,0,10" />
+
+                        <TextBlock Grid.Row="3" Foreground="Black" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold" Height="104" Width="170"><Run Text="EL KAROUI Yael, "/><LineBreak/><Run Text="BTS CIEL"/></TextBlock>
+
+                    </Grid>
                 </Border>
                 <TextBlock Text="Agenda" Foreground="Black" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold"/>
             </Grid>
             <Grid Grid.Column="1" x:Name="changementView">
-                <Grid.RowDefinitions >
-                    <RowDefinition Height="200"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <Button Grid.Column="0"  x:Name="Retirer" Content="Retirer" Margin="215,15,0,15" Width="127" Height="50" HorizontalAlignment="Left" Click="Retirer_Click"/>
-                <Button Grid.Column="0" Content="Ajouter" Margin="80,15,0,15" Width="100" Height="50" HorizontalAlignment="Left" Click="Ajouter_Click"/>
-                <DataGrid Grid.Row="1" Name="DG_Contacte" Height="200" VerticalAlignment="Top" Margin="0,17,0,0"/>
+                <Frame x:Name="mainFrame" />
+
             </Grid>
 
         </Grid>

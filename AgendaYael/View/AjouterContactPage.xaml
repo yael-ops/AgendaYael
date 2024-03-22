@@ -1,0 +1,54 @@
+﻿<Window x:Class="AgendaYael.View.AjouterContactPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AgendaYael.View"
+        mc:Ignorable="d"
+        
+        Title="Ajouter Contact" >
+    <Grid x:Name="addcontact" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" MinWidth="188"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="Prénom:" Grid.Row="1" VerticalAlignment="Center"/>
+        <TextBox Grid.Column="1" Grid.Row="1" Margin="5" Name="TBprenom"/>
+
+        <TextBlock Grid.Row="2" Text="Nom:" VerticalAlignment="Center"/>
+        <TextBox Grid.Column="1" Grid.Row="2" Margin="5" Name="TBnom"/>
+
+        <TextBlock Grid.Row="3" Text="Adresse:" VerticalAlignment="Center"/>
+        <TextBox Grid.Column="1" Grid.Row="3" Margin="5" Name="TBadresse"/>
+
+        <TextBlock Grid.Row="4" Text="Email:" VerticalAlignment="Center"/>
+        <TextBox Grid.Column="1" Grid.Row="4" Margin="5" Name="TBemail"/>
+
+        <TextBlock Grid.Row="5" Text="Date de naissance:" VerticalAlignment="Center"/>
+        <TextBox Grid.Column="1" Grid.Row="5" Margin="5" Name="TBdate_de_naissance"/>
+
+        <TextBlock Grid.Row="6" Text="Statut:" VerticalAlignment="Center"/>
+        <ComboBox Grid.Column="1" Grid.Row="6" Margin="5" Name="enumStatut" SelectionChanged="enumStatut_SelectionChanged"/>
+
+        <TextBlock Grid.Row="7" Text="Adresse :" VerticalAlignment="Center"/>
+        <TextBox Grid.Column="1" Grid.Row="7" Margin="5" Name="Adresse"/>
+
+
+        <Button Grid.Row="8" Grid.Column="1" Content="Ajouter" HorizontalAlignment="Center"  Width="250"   Click="Button_Click"  />
+    </Grid>
+</Window>
